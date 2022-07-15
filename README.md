@@ -1,5 +1,28 @@
 # demo20220715contextlabel Project
 
+```
+docker ps
+docker exec -it <id> sh
+psql -U hibernate default
+\d
+```
+
+```
+default=# SELECT * FROM cecase WHERE mytag ~ '*.eu.*';
+ id | ceuuid |          context           |               mytag               
+----+--------+----------------------------+-----------------------------------
+  1 | test1  | {"host": "milan.archivio"} | {location.eu.italy.milan,type.db}
+(1 row)
+
+default=# SELECT * FROM cecase WHERE mytag <@ 'location.eu';
+ id | ceuuid |          context           |               mytag               
+----+--------+----------------------------+-----------------------------------
+  1 | test1  | {"host": "milan.archivio"} | {location.eu.italy.milan,type.db}
+(1 row)
+```
+
+<!--
+
 This project uses Quarkus, the Supersonic Subatomic Java Framework.
 
 If you want to learn more about Quarkus, please visit its website: https://quarkus.io/ .
@@ -59,3 +82,5 @@ If you want to learn more about building native executables, please consult http
 Easily start your RESTful Web Services
 
 [Related guide section...](https://quarkus.io/guides/getting-started#the-jax-rs-resources)
+
+-->

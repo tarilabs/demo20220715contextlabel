@@ -4,12 +4,26 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.NamedNativeQueries;
+import javax.persistence.NamedNativeQuery;
 
 import org.hibernate.annotations.Type;
 
 import com.fasterxml.jackson.databind.JsonNode;
 
 @Entity
+@NamedNativeQueries({
+    @NamedNativeQuery(
+        name = "getAllByParent",
+        query = "SELECT * FROM cecase WHERE mytag <@ text2ltree(:parent)",
+        resultClass = CECase.class
+    ),
+    @NamedNativeQuery(
+        name = "getAllByLQuery",
+        query = "SELECT * FROM cecase WHERE mytag ~ CAST( :lquery AS lquery )",
+        resultClass = CECase.class
+    ),
+})
 public class CECase {
     @Id @GeneratedValue private Long id;
     
