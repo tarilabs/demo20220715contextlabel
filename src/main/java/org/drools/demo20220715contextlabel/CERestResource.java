@@ -53,6 +53,7 @@ public class CERestResource {
         var cecase = new CECase();
         cecase.setCeuuid(event.getId());
         cecase.setContext(node);
+        cecase.setMytag(new String[]{"location.eu.italy.milan", "type.db"});
         panacheRepository.persist(cecase);
         return Response.created(URI.create(RestConstants.PATH + "/" + cecase.getId())).build();
     }
