@@ -1,0 +1,55 @@
+specVersion: alpha
+kind: YaRD
+name: 'labeling'
+expressionLang: 'jq'
+inputs:
+- name: 'host'
+  type: string
+- name: 'diskPerc'
+  type: number
+- name: 'memPerc'
+  type: number
+- name: 'cpuPerc'
+  type: number
+elements:
+- name: 'location'
+  type: Decision
+  logic: 
+    type: DecisionTable
+    inputs: ['.host']
+    rules:
+    - when: [endswith("milano.local")]
+      then: '"location.emea.italy.milan"'
+    - when: [endswith("roma.local")]
+      then: '"location.emea.italy.rome"'
+    - when: [endswith("london.local")]
+      then: '"location.emea.uk.london"'
+    - when: [endswith("toronto.local")]
+      then: '"location.na.canada.toronto"'
+- name: 'type'
+  type: Decision
+  logic: 
+    type: DecisionTable
+    inputs: ['.host']
+    rules:
+    - when: [test("basedidati")]
+      then: '"type.db"'
+    - when: [test("discorigido")]
+      then: '"type.nas"'
+    - when: [test("database")]
+      then: '"type.db"'
+    - when: [test("shared")]
+      then: '"type.nas"'
+- name: 'oncall'
+  type: Decision
+  logic: 
+    type: DecisionTable
+    inputs: ['.location', '.type']
+    rules:
+    - when: ['startswith("location.emea")', '. == "type.db"']
+      then: '"EMEA.dbadm"'
+    - when: ['startswith("location.emea") | not', '. == "type.db"']
+      then: '"CORP.dbadm"'
+    - when: ['true', '. == "type.nas"']
+      then: '"CORP.it"'
+---

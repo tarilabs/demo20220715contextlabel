@@ -5,4 +5,6 @@ create sequence hibernate_sequence start 1 increment 1;
 CREATE INDEX mytag_gist_idx ON CECase USING GIST (mytag);
 CREATE INDEX mytag_idx ON CECase USING BTREE (mytag);
 
-INSERT INTO CECase VALUES (nextval('hibernate_sequence'), 'test1', '{"host":"milan.archivio"}', ARRAY [text2ltree('location.eu.italy.milan'), text2ltree('type.db')]);
+INSERT INTO CECase VALUES (nextval('hibernate_sequence'), 'test1', '{"host":"basedidati.milano.local"}', ARRAY [text2ltree('location.eu.italy.milan'), text2ltree('type.db')]);
+INSERT INTO CECase VALUES (nextval('hibernate_sequence'), 'test2', '{"host":"discorigido.milano.local"}', ARRAY [text2ltree('location.eu.italy.milan'), text2ltree('type.nas')]);
+INSERT INTO CECase VALUES (nextval('hibernate_sequence'), 'test3', '{"host":"discorigido.roma.local"}', ARRAY [text2ltree('location.eu.italy.rome'), text2ltree('type.nas')]);

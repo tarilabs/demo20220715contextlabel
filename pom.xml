@@ -12,11 +12,15 @@
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <quarkus.platform.artifact-id>quarkus-bom</quarkus.platform.artifact-id>
     <quarkus.platform.group-id>io.quarkus.platform</quarkus.platform.group-id>
-    <quarkus.platform.version>2.10.2.Final</quarkus.platform.version>
+    <quarkus.platform.version>2.9.2.Final</quarkus.platform.version>
     <skipITs>true</skipITs>
     <surefire-plugin.version>3.0.0-M7</surefire-plugin.version>
+    <version.org.kie.yard>1.0-SNAPSHOT</version.org.kie.yard>
     <version.cloudevents>2.3.0</version.cloudevents>
     <version.vladmihalcea>2.16.3</version.vladmihalcea>
+    <version.kogito>1.22.1.Final</version.kogito>
+    <version.org.drools>8.22.1.Beta</version.org.drools>
+    <version.org.assertj>3.23.1</version.org.assertj>
   </properties>
   <dependencyManagement>
     <dependencies>
@@ -39,6 +43,27 @@
       <groupId>com.vladmihalcea</groupId>
       <artifactId>hibernate-types-55</artifactId>
       <version>${version.vladmihalcea}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.kie.yard</groupId>
+      <artifactId>yard-impl1</artifactId>
+      <version>${version.org.kie.yard}</version>
+    </dependency>
+    <dependency>
+        <groupId>org.kie</groupId>
+        <artifactId>kie-dmn-core-jsr223</artifactId>
+        <version>${version.org.drools}</version>
+    </dependency>
+    <dependency>
+        <groupId>org.kie</groupId>
+        <artifactId>kie-dmn-core-jsr223-jq</artifactId>
+        <version>${version.org.drools}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.assertj</groupId>
+      <artifactId>assertj-core</artifactId>
+      <version>${version.org.assertj}</version>
+      <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>io.quarkus</groupId>
