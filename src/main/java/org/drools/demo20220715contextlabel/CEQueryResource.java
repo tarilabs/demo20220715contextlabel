@@ -13,7 +13,7 @@ import org.drools.demo20220715contextlabel.model.CECase;
 @Path("/query")
 public class CEQueryResource {
     @PersistenceContext
-    private EntityManager manager;
+    EntityManager manager;
 
     @GET
     @Path("/under/{parent}")

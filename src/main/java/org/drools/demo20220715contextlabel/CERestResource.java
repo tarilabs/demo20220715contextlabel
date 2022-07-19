@@ -1,7 +1,9 @@
 package org.drools.demo20220715contextlabel;
 
 import java.net.URI;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 import javax.transaction.Transactional;
@@ -30,9 +32,10 @@ public class CERestResource {
 
     @Inject
     ObjectMapper mapper;
-
     @Inject
     CECaseRepository panacheRepository;
+    @Inject
+    LabelYaRDEvaluator labelEvaluator;
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
@@ -43,7 +46,7 @@ public class CERestResource {
                 "id": "667e258a-8eb9-43b2-9313-22133f2c717e",
                 "source": "example",
                 "type": "demo20220715contextlabel.demotype",
-                "data": { "host" : "milan.archivio" }
+                "data": {"host": "basedidati.milano.local", "diskPerc": 70, "memPerc": 50, "cpuPerc": 20}
             }
             """)})
     public Response hello(CloudEvent event) throws Exception {
@@ -53,7 +56,7 @@ public class CERestResource {
         var cecase = new CECase();
         cecase.setCeuuid(event.getId());
         cecase.setContext(node);
-        cecase.setMytag(new String[]{"location.eu.italy.milan", "type.db"});
+        cecase.setMytag(labelEvaluator.labels(readJSON(jsonString)).toArray(new String[]{}));
         panacheRepository.persist(cecase);
         return Response.created(URI.create(RestConstants.PATH + "/" + cecase.getId())).build();
     }
@@ -67,5 +70,10 @@ public class CERestResource {
     @Path("/{id}")
     public CECase get(@PathParam("id") Long id) {
         return panacheRepository.findById(id);
+    }
+
+    @SuppressWarnings("unchecked")
+    private Map<String, Object> readJSON(final String CONTEXT) throws Exception {
+        return mapper.readValue(CONTEXT, Map.class);
     }
 }

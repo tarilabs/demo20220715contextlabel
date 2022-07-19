@@ -68,7 +68,7 @@ public class YaRDTest {
         LOG.info("{}", OUTPUT_JSON);
         assertThat(outputJSONasMap).hasFieldOrPropertyWithValue("location", "location.emea.italy.milan");
         assertThat(outputJSONasMap).hasFieldOrPropertyWithValue("type", "type.db");
-        assertThat(outputJSONasMap).hasFieldOrPropertyWithValue("oncall", "EMEA.dbadm");
+        assertThat(outputJSONasMap).hasFieldOrPropertyWithValue("oncall", "oncall.EMEA.dbadm");
     }
 
     @SuppressWarnings("unchecked")

@@ -47,9 +47,9 @@ elements:
     inputs: ['.location', '.type']
     rules:
     - when: ['startswith("location.emea")', '. == "type.db"']
-      then: '"EMEA.dbadm"'
+      then: '"oncall.EMEA.dbadm"'
     - when: ['startswith("location.emea") | not', '. == "type.db"']
-      then: '"CORP.dbadm"'
+      then: '"oncall.CORP.dbadm"'
     - when: ['true', '. == "type.nas"']
-      then: '"CORP.it"'
+      then: '"oncall.CORP.it"'
 ---
