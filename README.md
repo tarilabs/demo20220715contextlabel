@@ -15,6 +15,7 @@ Non goals:
 - Apache Maven 3.8.6
 - Docker
 - NodeJS v18.6.0
+- place [draft GUI](https://github.com/tarilabs/demo20220715contextlabel-ui) as a sibling directory for Quarkus' Quinoa `quarkus:dev`
 
 ## Overview
 
