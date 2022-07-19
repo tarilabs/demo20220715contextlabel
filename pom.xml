@@ -21,6 +21,7 @@
     <version.kogito>1.24.0.Final</version.kogito>
     <version.org.drools>8.24.0.Beta</version.org.drools>
     <version.org.assertj>3.23.1</version.org.assertj>
+    <version.quarkus.quinoa>1.1.2</version.quarkus.quinoa>
   </properties>
   <dependencyManagement>
     <dependencies>
@@ -34,6 +35,11 @@
     </dependencies>
   </dependencyManagement>
   <dependencies>
+    <dependency>
+      <groupId>io.quarkiverse.quinoa</groupId>
+      <artifactId>quarkus-quinoa</artifactId>
+      <version>${version.quarkus.quinoa}</version>
+    </dependency>
     <dependency>
       <groupId>io.cloudevents</groupId>
       <artifactId>cloudevents-json-jackson</artifactId>

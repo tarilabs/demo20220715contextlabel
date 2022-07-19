@@ -1,7 +1,6 @@
 package org.drools.demo20220715contextlabel;
 
 import java.net.URI;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
