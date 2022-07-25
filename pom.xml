@@ -22,6 +22,7 @@
     <version.org.drools>8.24.0.Beta</version.org.drools>
     <version.org.assertj>3.23.1</version.org.assertj>
     <version.quarkus.quinoa>1.1.2</version.quarkus.quinoa>
+    <version.awaitility>4.2.0</version.awaitility>
   </properties>
   <dependencyManagement>
     <dependencies>
@@ -77,6 +78,10 @@
     </dependency>
     <dependency>
       <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-smallrye-reactive-messaging-kafka</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>io.quarkus</groupId>
       <artifactId>quarkus-smallrye-openapi</artifactId>
     </dependency>
     <dependency>
@@ -107,6 +112,12 @@
     <dependency>
       <groupId>io.rest-assured</groupId>
       <artifactId>rest-assured</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.awaitility</groupId>
+      <artifactId>awaitility</artifactId>
+      <version>${version.awaitility}</version>
       <scope>test</scope>
     </dependency>
   </dependencies>

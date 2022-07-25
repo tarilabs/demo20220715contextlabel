@@ -5,4 +5,5 @@ public class RestConstants {
         // only static.
     }
     public static final String PATH = "/hello";
+    public static final String INGRESS_PATH = "/ingress";
 }

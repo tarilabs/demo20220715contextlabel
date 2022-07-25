@@ -6,14 +6,14 @@ Goals:
  - Demo a Classification of cloudevent generic context based on YaRD rule definition with ad-hoc indexed searching of association of _hierarchical_ labels via PostgreSQL's `ltree` for any given context
 
 Non goals:
- - Not yet wired Kafka
+ - Full complete architectural solution; for example, wired Kafka as demonstrator 
  - Fully implemented GUI (focusing on backend, and for the frontend [chabuduo](https://youtube.com/clip/UgkxeVe0fr81gBBZXzQ1LG2189Z1QrYspmXt) MVP working-PoC 🚀)
 
 ## Requirements
 
 - openjdk 17
 - Apache Maven 3.8.6
-- Docker
+- Docker (for PostgreSQL and Kafka, Quarkus Dev Services)
 - NodeJS v18.6.0
 - place [draft GUI](https://github.com/tarilabs/demo20220715contextlabel-ui) as a sibling directory for Quarkus' Quinoa `quarkus:dev`
 
