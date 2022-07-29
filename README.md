@@ -1,6 +1,6 @@
 # demo20220715contextlabel Project
 
-Technologies used in this demo: [Drools](https://www.drools.org/learn/video.html), [YaRD](https://github.com/kiegroup/yard/), [Kogito](https://kogito.kie.org/), [Quarkus](https://quarkus.io/), [cloudevents](https://cloudevents.io/), [hibernate-types](https://github.com/vladmihalcea/hibernate-types#readme), [quarkus-quinoa](https://quarkiverse.github.io/quarkiverse-docs/quarkus-quinoa/dev/), [PatternFly](https://www.patternfly.org/v4/).
+Technologies used in this demo: [Drools](https://www.drools.org/learn/video.html), [YaRD](https://github.com/kiegroup/yard/), [Kogito](https://kogito.kie.org/), [Quarkus](https://quarkus.io/), [cloudevents](https://cloudevents.io/), PostgreSQL, [hibernate-types](https://github.com/vladmihalcea/hibernate-types#readme), [quarkus-quinoa](https://quarkiverse.github.io/quarkiverse-docs/quarkus-quinoa/dev/), [PatternFly](https://www.patternfly.org/v4/).
 
 Goals:
  - Demo a Classification of cloudevent generic context based on YaRD rule definition with ad-hoc indexed searching of association of _hierarchical_ labels via PostgreSQL's `ltree` for any given context
